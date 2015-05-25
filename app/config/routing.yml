@@ -1,0 +1,14 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+app_webapp:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:login }
+
+login_check:
+    path: /login_check

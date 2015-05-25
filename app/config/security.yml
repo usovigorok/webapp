@@ -1,0 +1,28 @@
+security:
+    encoders:
+        AppBundle\Entity\User: bcrypt
+
+    providers:
+        user_db:
+            entity: { class: AppBundle:User, property: username }
+
+    firewalls:
+        default:
+            anonymous: true
+
+
+#    firewalls:
+#        main:
+#            pattern: /.*
+#            form_login:
+#                login_path: /login
+#                check_path: /login_check
+#                default_target_path: /webapp/user
+#            security: true
+#            anonymous: true
+
+#    access_control:
+#        - { path: /webapp/user/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: /login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: /webapp/user, roles: ROLE_USER }
+#        - { path: /.*, roles: ROLE_USER }

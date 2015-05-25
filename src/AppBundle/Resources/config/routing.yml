@@ -1,0 +1,4 @@
+app_webapp_user:
+    resource: "@AppBundle/Resources/config/routing/user.yml"
+    prefix:   /webapp/user
+

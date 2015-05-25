@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>User registration</h1>
+
+    <div>
+        {{ form(form) }}
+    </div>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('webapp_user') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %}

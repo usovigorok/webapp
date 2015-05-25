@@ -1,0 +1,21 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    listener.requestresponse:
+        class: AppBundle\Listener\RequestListener
+        arguments: [ @service_container, @router ]
+        tags:
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+          - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    user.listener:
+            class: AppBundle\Listener\UserListener
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }
+                - { name: doctrine.event_listener, event: postPersist }
